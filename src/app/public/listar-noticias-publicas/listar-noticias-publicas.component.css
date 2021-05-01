@@ -1,0 +1,41 @@
+mat-grid-tile {
+    background: lightblue;
+}
+.mat-grid-tile .mat-figure {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+}
+
+.btn {
+    background-color: #f4511e;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 1;
+
+  }
+
+.btn:hover { 
+    opacity: 0.7;
+    transition: 0.3s;
+ }
+
+ h5 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 15ch;
+ }

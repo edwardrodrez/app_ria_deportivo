@@ -1,0 +1,132 @@
+<h3 style="color: darkcyan;">Modificar Contrato</h3>
+<mat-divider></mat-divider>
+
+    <form class="example-form">
+        <div class="example-full-width" >
+          <mat-vertical-stepper [linear]="isLinear" #stepper >
+            <mat-step [stepControl]="firstFormGroup" >
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Datos del Contrato</ng-template>
+                <mat-form-field>
+                  <mat-label>Genero Usuario ?</mat-label>
+                  <mat-select [(value)]="selected">
+                    <mat-option value="option1">Hombre</mat-option>
+                    <mat-option value="option2">Mujer</mat-option>
+                  </mat-select>
+                </mat-form-field>    
+                <mat-form-field class="example-full-width">
+                  <mat-label>Fecha de Comienzo</mat-label>
+                  <input matInput [matDatepicker]="picker1" [formControl]="date" required value="{{ContraDTO.fechaComienzo}}">
+                  <mat-datepicker-toggle matSuffix [for]="picker1">
+                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                  </mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+                  <mat-form-field>
+                    <mat-select [(value)]="selected2">
+                      <mat-option value="option1">Activa</mat-option>
+                      <mat-option value="option2">Desactivada</mat-option>
+                    </mat-select>
+                  </mat-form-field>      
+                  <div style="margin-top: 10px;display: flex;justify-content: flex-end;">
+                    <button mat-button matStepperNext style="background: teal;color: whitesmoke;">Siguiente</button>
+                  </div>
+              </form>
+            </mat-step>
+            <mat-step>
+  
+                      <!-- NUEVOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 16-6-2020 -->  
+                      <ng-template matStepLabel>Seleccione un Socio</ng-template>
+          
+                      <div class="example-container" style=" margin-top: 10px;  height: 100px;;
+                      overflow: auto;">
+                        <mat-radio-group
+                          aria-labelledby="example-radio-group-label"
+                          class="example-radio-group"
+                          [(ngModel)]="favoriteSeason"  name="input1">
+                          <mat-radio-button class="example-radio-button" [checked]='shoe.id==ContraDTO.id_Persona' *ngFor="let shoe of typesOfShoes" [value]="shoe">
+                            {{shoe.primerApellido}}-{{shoe.id}}
+                          </mat-radio-button>
+                        </mat-radio-group>
+    
+                      </div>
+                      <!-- -->
+              <div style="margin-top: 10px;display: flex;justify-content: space-between;">
+                <button mat-button matStepperPrevious>Volver</button>
+                <button mat-button matStepperNext style="background: teal;color: whitesmoke;">Siguiente</button>
+              </div>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Seleccione un convenio</ng-template>
+          
+                       <div class="example-container" style=" margin-top: 10px;  height: 100px;;
+                       overflow: auto;">
+                         <mat-radio-group
+                           aria-labelledby="example-radio-group-label"
+                           class="example-radio-group"
+                           [(ngModel)]="favoriteSeason2"  name="input2">
+                           <mat-radio-button class="example-radio-button" [checked]='shoe.id==ContraDTO.id_convenio' *ngFor="let shoe of typesOfShoes2" [value]="shoe">
+                             {{shoe.nombre}}-{{shoe.porcentajeDescuento}}
+                           </mat-radio-button>
+                         </mat-radio-group>
+     
+                       </div>
+                       <!-- -->
+              <div style="margin-top: 10px;display: flex;justify-content: space-between;">
+                <button mat-button matStepperPrevious>Volver</button>
+                <button mat-button matStepperNext style="background: teal;color: whitesmoke;">Siguiente</button>
+              </div>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Seleccione una Categoria</ng-template>
+          
+                       <div class="example-container" style=" margin-top: 10px;  height: 100px;;
+                       overflow: auto;">
+                         <mat-radio-group
+                           aria-labelledby="example-radio-group-label"
+                           class="example-radio-group"
+                           [(ngModel)]="favoriteSeason3" name="input3">
+                           <mat-radio-button class="example-radio-button" [checked]='shoe.id==ContraDTO.id_categoria' *ngFor="let shoe of typesOfShoes3" [value]="shoe">
+                             {{shoe.nombre}}
+                           </mat-radio-button>
+                         </mat-radio-group>
+     
+                       </div>
+                       <!-- -->
+              <div style="margin-top: 10px;display: flex;justify-content: space-between;">
+                <button mat-button matStepperPrevious>Volver</button>
+                <button mat-button matStepperNext style="background: teal;color: whitesmoke;">Siguiente</button>
+              </div>
+            </mat-step>
+            <mat-step >
+              <ng-template matStepLabel>Seleccione un Medio de Pago</ng-template>
+          
+                       <div class="example-container" style=" margin-top: 10px;  height: 100px;;
+                       overflow: auto;">
+                         <mat-radio-group
+                           aria-labelledby="example-radio-group-label"
+                           class="example-radio-group"
+                           [(ngModel)]="favoriteSeason4"  name="input4">
+                           <mat-radio-button class="example-radio-button" [checked]='shoe.id==ContraDTO.id_medioDePago' *ngFor="let shoe of typesOfShoes4" [value]="shoe">
+                             {{shoe.nombre}}
+                           </mat-radio-button>
+                         </mat-radio-group>
+     
+                       </div>
+                       <!-- -->
+              <div style="margin-top: 10px;display: flex;">
+                <button mat-button matStepperPrevious>Volver</button>
+                
+              </div>
+            </mat-step>
+          </mat-vertical-stepper>    
+ 
+        </div>
+        <mat-divider></mat-divider>
+        <div style="display: flex;justify-content: space-between;padding: 10px;">
+            <div><button mat-button mat-dialog-close>Cancelar</button></div>
+            <div><button (click)="postConvenios()" mat-button color="primary">Modificar</button></div>
+        </div>
+      
+    
+      </form>

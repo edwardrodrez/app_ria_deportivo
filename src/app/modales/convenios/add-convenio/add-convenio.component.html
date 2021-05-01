@@ -1,0 +1,41 @@
+<h3 style="color: darkcyan;">Nuevo Convenio</h3>
+<mat-divider></mat-divider>
+
+    <form class="example-form">
+        <div style="padding-top: 20px;padding-bottom: 30px;">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput [(ngModel)]="ConvenioDTO.nombre" name="input1" [formControl]="nomFormControl" placeholder="Nombre ">
+          <mat-error *ngIf="nomFormControl.hasError('required')">
+            Ingrese nombre Convenio
+         </mat-error>
+        </mat-form-field>  
+        <mat-form-field class="example-full-width">
+            <mat-label>Porcentaje de Descuento</mat-label>
+            <input matInput [(ngModel)]="ConvenioDTO.porcentajeDescuento" name="input2" [formControl]="porFormControl" type="number"  placeholder="%">
+            <mat-error *ngIf="porFormControl.hasError('required')">
+              Ingrese Porcentaje de Descuento
+           </mat-error>
+           <mat-error *ngIf="porFormControl.hasError('min')">
+            Debe ser mayor o igual a 0
+         </mat-error>
+         <mat-error *ngIf="porFormControl.hasError('max')">
+          Debe ser menor o igual a 100
+       </mat-error>
+        </mat-form-field>    
+                <mat-form-field>
+                    <mat-label>Activa ?</mat-label>
+                    <mat-select [(value)]="selected">
+                      <mat-option value="option1">Activa</mat-option>
+                      <mat-option value="option2">Desactivada</mat-option>
+                    </mat-select>
+                  </mat-form-field>       
+        </div>
+        <mat-divider></mat-divider>
+        <div style="display: flex;justify-content: space-between;padding: 10px;">
+            <div><button mat-button mat-dialog-close>Cancelar</button></div>
+            <div><button mat-button (click)="postConvenios()" color="primary">Crear</button></div>
+        </div>
+      
+    
+      </form>

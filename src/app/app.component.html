@@ -1,0 +1,294 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+    
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+  mat-drawer-content {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 2000px;
+    overflow: auto;
+    padding: 50px;
+}
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+
+
+  }
+
+  @media screen and (max-width: 575px) {
+    .icon-b span {
+      background: white;
+      display: none;
+    }
+    .example-sidenav-content{
+      flex-direction: column;
+      align-items: baseline;
+      color: crimson;
+    }
+
+  }
+
+
+
+</style>
+
+<div class="todo">
+
+  <mat-drawer-container class="example-container" style="height: 1500px;" >
+    <mat-drawer #drawer class="example-sidenav"  style="height: 2000px;" [mode]="mode.value" style="display: flex;flex-direction: column; background: darkslategrey;color: whitesmoke;box-shadow: 3px 3px 5px darkslategrey;border-radius: 5px;">
+      <section>
+        <div style="padding: 10px;display: flex;align-items: center;justify-content: space-between;">
+          <h1 style="padding-left: 10px;">MENU</h1>
+          <button mat-mini-fab color="primary" mat-button (click)="drawer.toggle()" style="background: cadetblue;">
+            <span class="material-icons">
+              menu_open
+              </span>
+          </button>    
+        </div>
+        <mat-divider style="background: aliceblue;"></mat-divider>
+
+        <mat-divider style="background: aliceblue;"></mat-divider>
+        <div class="example-button-row" style="display: flex;flex-direction: column;width: 330px;justify-content: unset;align-items: self-end;padding-left: 20px;">
+                        
+          <div *ngIf="isSecre() || isAdmin()" style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+            <div style="display: flex;">
+              <span class="material-icons">people</span>
+            </div>
+            <div >
+              <button mat-button [routerLink]="['/personas']" (click)="drawer.close()" style="font-weight: 500;font-size: 17px;">Personas </button>
+            </div>
+          </div>            
+          <div *ngIf="isAdmin()" style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+            <div style="display: flex;">
+              <span class="material-icons">dashboard</span>
+            </div>
+            <div>
+              <button mat-button [routerLink]="['/noticias']" (click)="drawer.close()" style="font-weight: 500;font-size: 17px;">Noticias </button>
+            </div>
+          </div>   
+          <div *ngIf="isAdmin()" style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+            <div style="display: flex;">
+              <span class="material-icons">people</span>
+            </div>
+            <div>
+              <button mat-button  (click)="openDialogAsignar()" (click)="drawer.close()" style="font-weight: 500;font-size: 17px;">Asignar Rol </button>
+            </div>
+          </div> 
+
+          <div *ngIf="isSecre() || isAdmin()" style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+            <div style="display: flex;">
+              <span class="material-icons">dashboard</span>
+            </div>
+            <div>
+              <button mat-button [routerLink]="['/contratos']" (click)="drawer.close()" style="font-weight: 500;font-size: 17px;">Contratos</button>
+            </div>
+          </div>   
+          <div *ngIf="isSecre() || isAdmin()" style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+            <div style="display: flex;">
+              <span class="material-icons">library_books</span>
+            </div>
+            <div>
+              <button mat-button [routerLink]="['/categorias']" (click)="drawer.close()" style="font-weight: 500;font-size: 17px;">Categorias</button>
+            </div>
+          </div>             
+          <div *ngIf="isSecre() || isAdmin()" style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+            <div style="display: flex;">
+              <span class="material-icons">dashboard</span>
+            </div>
+            <div>
+              <button mat-button [routerLink]="['/convenios']" (click)="drawer.close()" style="font-weight: 500;font-size: 17px;">Convenios</button>
+            </div>
+          </div>         
+          <div  *ngIf="isSecre() || isAdmin()" style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+            <div style="display: flex;">
+                <span class="material-icons">featured_play_list</span>
+            </div>
+            <div>
+                <button mat-button [routerLink]="['/medios']" (click)="drawer.close()" style="font-weight: 500;font-size: 17px;">Medios De Pago</button>
+            </div>
+          </div>
+          <div *ngIf="isSecre() || isAdmin()" style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+            <div style="display: flex;">
+              <span class="material-icons">request_quote</span>
+            </div>
+            <div>
+              <button mat-button [routerLink]="['/precios']" (click)="drawer.close()" style="font-weight: 500;font-size: 17px;">Precios</button>
+            </div>
+          </div>
+          <div *ngIf="isSecre() || isAdmin()" style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+            <div style="display: flex;">
+              <span class="material-icons">local_hospital</span>
+            </div>
+            <div>
+              <button mat-button [routerLink]="['/prestadores']" (click)="drawer.close()" style="font-weight: 500;font-size: 17px;">Prestadores de Salud </button>
+            </div>
+          </div>
+          <div *ngIf="isSecre() || isAdmin()" style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+            <div style="display: flex;">
+              <span class="material-icons">filter_frames</span>
+            </div>
+            <div>
+              <button mat-button [routerLink]="['/actividadespriv']" (click)="drawer.close()" style="font-weight: 500;font-size: 17px;">Actividades</button>
+            </div>
+          </div>
+          
+        </div>
+        <mat-divider style="background: aliceblue;"></mat-divider>
+      </section>
+    </mat-drawer>
+    <div class="card1" style="height: 60px;width: 100%;box-shadow: 2px 2px 5px black;margin-bottom: 10px;background: gainsboro;display: flex;justify-content: space-between;flex-direction: row;align-items: center;">  
+      <div style="padding: 20px;">
+        <button mat-mini-fab color="primary" mat-button (click)="drawer.toggle()" style="background: cadetblue;">
+          <mat-icon>menu</mat-icon>
+        </button>    
+      </div>
+      <div style="padding-right: 20px;" *ngIf="!isSesion()">
+        <button mat-button (click)="openDialogRegistro()" style="font-size: 18px;font-weight: 800;color: teal;">Registro</button>
+        <button mat-button (click)="openDialogLogin()" style="font-size: 18px;font-weight: 800;color: teal;">Login</button>
+      </div>
+      <div style="padding-right: 20px;" *ngIf="isSesion()">
+        <button mat-button (click)="Logout()" style="font-size: 18px;font-weight: 800;color: teal;">Logout</button>
+      </div>          
+  </div>
+    <div class="example-sidenav-content" style="display: flex;justify-content: end;align-content: initial;margin-bottom: 10px;">
+      <div style="display: flex;align-items: center;">
+        <div style="padding-left: 20px;">
+          <button [routerLink]="['/inicio']" mat-mini-fab  (click)="drawer.close()" aria-label="Example icon button with a home icon" style="background: darkcyan;color: aliceblue;">
+            <mat-icon>home</mat-icon>
+          </button>
+        </div>
+        <div style="padding-left: 20px;">
+          <h1 style="color: teal;font-size: 30px;font-weight: 600;">GESTCLUB</h1>
+        </div>
+      </div>
+
+      <div class="icon-b"  style="display: flex;align-items: center;padding: 10px;color: crimson;">
+        <div style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+          <div style="display: flex;">
+            <span class="material-icons">corporate_fare</span>
+          </div>
+          <div>
+            <button mat-button [routerLink]="['/somos']">Conocenos</button>   
+          </div>
+        </div>    
+        <div style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+          <div  style="display: flex;">
+            <span class="material-icons">pool</span>
+          </div>
+          <div>
+            <button mat-button [routerLink]="['/actividades']"  >Actividades</button>
+          </div>
+        </div>     
+        <div style="display: flex;flex-direction: row;align-items: center;padding: 5px;">
+          <div   style="display: flex;">
+            <span class="material-icons">headset_mic</span>
+          </div>
+          <div>
+            <button mat-button [routerLink]="['/contactos']">Contactos</button>
+          </div>
+        </div>  
+      </div>
+
+    </div>
+
+    <!-- Contenido cambiante -->
+    <router-outlet></router-outlet>
+    <!--<mat-tab-group style="padding: 20px;">
+      <mat-tab label="Primer Contenido" id="hola" aria-label="hola">
+        <ng-template matTabContent style="padding: 20px;" id="hola" aria-label="hola">
+          <mat-card style="padding: 20px;">Simple card</mat-card>
+          <mat-card style="padding: 20px;">Simple card</mat-card>
+          <mat-card style="padding: 20px;">Simple card</mat-card>
+          <mat-card style="padding: 20px;">Simple card</mat-card>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Segundo Contenido">
+        <ng-template matTabContent>
+          The Second Content
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Noticias">
+        <ng-template matTabContent style="padding: 20px;">
+          <mat-card style="padding: 20px;">Simple card4</mat-card>
+          <mat-card style="padding: 20px;">Simple card4</mat-card>
+          <mat-card style="padding: 20px;">Simple card4</mat-card>
+          <mat-card style="padding: 20px;">Simple card4</mat-card>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>-->
+
+   
+
+  </mat-drawer-container>
+  
+</div>
+<div class="card1" style="height: 70px;width: 100%;background: gainsboro;box-shadow: 2px -2px 5px black;margin-top: 10px;"></div>
+  <!-- Footer -->
+
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+

@@ -1,0 +1,47 @@
+<h3 style="color: darkcyan;">Nuevo Precio</h3>
+<mat-divider></mat-divider>
+
+    <form class="example-form">
+        <div style="padding-top: 20px;padding-bottom: 30px;">
+        <mat-form-field class="example-full-width">
+          <mat-label>Valor</mat-label>
+          <input matInput [(ngModel)]="pagosDTO.valor" type="number" name="input1"  [formControl]="valFormControl" placeholder="valor">
+          <mat-error *ngIf="valFormControl.hasError('required')">
+            Ingrese un Valor
+          </mat-error>
+          <mat-error *ngIf="valFormControl.hasError('min')">
+            Ingrese un valor positivo
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Fecha de Vencimiento</mat-label>
+          <input matInput [matDatepicker]="picker5" [formControl]="date">
+          <mat-error *ngIf="date.hasError('required')">
+            Ingrese Fecha de Vencimiento
+          </mat-error>
+          <mat-datepicker-toggle matSuffix [for]="picker5">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker5></mat-datepicker>
+        </mat-form-field>
+        <mat-label style="color: crimson;">Seleccione una Categoria</mat-label>
+        <div class="example-container" style=" margin-top: 10px;">
+          <mat-radio-group
+            aria-labelledby="example-radio-group-label"
+            class="example-radio-group"
+            [(ngModel)]="favoriteSeason" name="input2">
+            <mat-radio-button class="example-radio-button" *ngFor="let shoe of typesOfShoes" [value]="shoe">
+              {{shoe.nombre}}
+            </mat-radio-button>
+          </mat-radio-group>
+
+        </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div style="display: flex;justify-content: space-between;padding: 10px;">
+            <div><button mat-button mat-dialog-close>Cancelar</button></div>
+            <div><button mat-button (click)="postConvenios()" color="primary">Agregar</button></div>
+        </div>
+
+
+      </form>

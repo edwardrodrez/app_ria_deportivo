@@ -1,0 +1,114 @@
+<h3 style="color: darkcyan;">Modificar Persona</h3>
+<mat-divider></mat-divider>
+
+    <form class="example-form">
+        <div style="padding-top: 20px;padding-bottom: 30px;">
+            <table class="example-full-width" cellspacing="0"><tr>
+                <td><mat-form-field class="example-full-width">
+                  <mat-label>Primer Nombre</mat-label>
+                  <input matInput [(ngModel)]="PresDeSaludDTO.primerNombre" name="input1"  value="{{PresDeSaludDTO.primerNombre}}" [formControl]="primNFormControl">
+                  <mat-error *ngIf="primNFormControl.hasError('required')">
+                    Ingrese Primer Nombre
+                  </mat-error>
+                </mat-form-field></td>
+                <td><mat-form-field class="example-full-width">
+                  <mat-label>Segundo Nombre</mat-label>
+                  <input matInput [(ngModel)]="PresDeSaludDTO.segundoNombre" name="input2" value="{{PresDeSaludDTO.segundoNombre}}" [formControl]="segNFormControl">
+                  <mat-error *ngIf="primNFormControl.hasError('required')">
+                    Ingrese Segundo Nombre
+                  </mat-error>
+                </mat-form-field></td>
+              </tr></table>
+              <table class="example-full-width" cellspacing="0"><tr>
+                <td><mat-form-field class="example-full-width">
+                  <mat-label>Primer Apellido</mat-label>
+                  <input matInput [(ngModel)]="PresDeSaludDTO.primerApellido" name="input3" value="{{PresDeSaludDTO.primerApellido}}" [formControl]="primAFormControl">
+                  <mat-error *ngIf="primNFormControl.hasError('required')">
+                    Ingrese Primer Apellido
+                  </mat-error>
+                </mat-form-field></td>
+                <td><mat-form-field class="example-full-width">
+                  <mat-label>Segundo Apellido</mat-label>
+                  <input matInput [(ngModel)]="PresDeSaludDTO.segundoApellido" name="input4" value="{{PresDeSaludDTO.segundoApellido}}" [formControl]="segAFormControl">
+                  <mat-error *ngIf="primNFormControl.hasError('required')">
+                    Ingrese Segundo Apellido
+                  </mat-error>
+                </mat-form-field></td>
+              </tr></table>
+              <mat-form-field class="example-full-width">
+                <mat-label>Fecha de Nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker" name="input10" value="{{PresDeSaludDTO.fechaNacimiento}}" [formControl]="date">
+                <mat-error *ngIf="date.hasError('required')">
+                  Ingrese Fecha de Nacimiento
+                </mat-error>
+                <mat-datepicker-toggle matSuffix [for]="picker">
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width">
+              <mat-label>Documento</mat-label>
+              <input matInput [(ngModel)]="PresDeSaludDTO.documento" name="input5" value="{{PresDeSaludDTO.documento}}" [formControl]="docFormControl">
+              <mat-error *ngIf="primNFormControl.hasError('required')">
+                Ingrese Documento
+              </mat-error>
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <mat-label>Tipo</mat-label>
+              <input matInput [(ngModel)]="PresDeSaludDTO.tipoDocumento" name="input6" value="{{PresDeSaludDTO.tipoDocumento}}" [formControl]="tipoFormControl">
+              <mat-error *ngIf="primNFormControl.hasError('required')">
+                Ingrese Tipo Documento
+              </mat-error>
+            </mat-form-field></td>
+          </tr></table>
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width">
+              <mat-label>Telefono</mat-label>
+              <input matInput [(ngModel)]="PresDeSaludDTO.telefono" name="input7" value="{{PresDeSaludDTO.telefono}}" [formControl]="telFormControl">
+              <mat-error *ngIf="primNFormControl.hasError('required')">
+                Ingrese Telefono
+              </mat-error>
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <mat-label>Direccion</mat-label>
+              <input matInput [(ngModel)]="PresDeSaludDTO.direccion" name="input8" value="{{PresDeSaludDTO.direccion}}" [formControl]="dirFormControl">
+              <mat-error *ngIf="primNFormControl.hasError('required')">
+                Ingrese Direccion
+              </mat-error>
+            </mat-form-field></td>
+          </tr></table>
+          <mat-form-field class="example-full-width">
+            <mat-label>Fecha de Vencimiento Carne de Salud</mat-label>
+            <input matInput [matDatepicker]="picker7" name="input11"  value="{{PresDeSaludDTO.fechaVenceCarneSalud}}"  [formControl]="date2">
+            <mat-error *ngIf="date2.hasError('required')">
+              Ingrese Fecha de Vencimiento
+            </mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker7">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker7></mat-datepicker>
+          </mat-form-field>
+
+        <!-- NUEVOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 16-6-2020 -->  
+       
+  
+          <mat-form-field>
+            <mat-label>Prestador De Salud</mat-label>
+            <mat-select [(ngModel)]="favoriteSeason" name="input9" >
+              <mat-option *ngFor="let shoe of typesOfShoes"  [value]="shoe">{{shoe.nombre}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+
+        <!-- -->
+
+        </div>
+        <mat-divider></mat-divider>
+        <div style="display: flex;justify-content: space-between;padding: 10px;">
+            <div><button mat-button mat-dialog-close>Cancelar</button></div>
+            <div><button mat-button (click)="postConvenios()"  color="primary" style="background: teal;color: whitesmoke;">Modificar</button></div>
+        </div>
+
+      </form>

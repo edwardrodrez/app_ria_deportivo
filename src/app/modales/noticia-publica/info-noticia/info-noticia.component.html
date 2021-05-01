@@ -1,0 +1,22 @@
+<h3 style="color: darkcyan;text-align: center;"  >{{data.titulo}}</h3>
+<mat-divider></mat-divider>
+
+<form class="example-form" style="display: flex;flex-direction: column;">
+        <div style="padding-top: 20px;padding-bottom: 10px;display: flex;flex-direction: column;align-items: center;">
+            <div  class="btn" style="margin-bottom: 10px;  box-shadow: black 2px 2px 5px;border-radius: 5px;height: 200px;max-width: 300px; min-width: 150px;display: flex;justify-content: center;">
+                    <img src= "{{data.imagen}}" style="height: 200px;max-width: 100%; min-width: 200px;">
+                </div>
+                <mat-divider></mat-divider>
+                <div  style="margin-top: 20px;padding:10px; font-size: 16px;margin-left: 5px;overflow-y: auto;height: 90px;">
+                    
+                    <h5 style="font-size: 16px;">{{data.descripcion}}</h5> 
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+        <div style="display: flex;justify-content: space-between;padding: 10px;">
+            <div><button mat-button mat-dialog-close>Volver</button></div>
+        </div>
+ </form>
+
+    
+ 

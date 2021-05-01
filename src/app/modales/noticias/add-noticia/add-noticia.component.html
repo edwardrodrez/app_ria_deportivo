@@ -1,0 +1,52 @@
+<h3 style="color: darkcyan;">Nuevo Noticia</h3>
+<mat-divider></mat-divider>
+
+    <form class="example-form">
+        <div style="padding-top: 20px;padding-bottom: 30px;">
+        <mat-form-field class="example-full-width">
+          <mat-label>Titulo</mat-label>
+          <input matInput [(ngModel)]="NotiDTO.titulo" name="input1" [formControl]="titFormControl" placeholder="Titulo de la Noticia">
+          <mat-error *ngIf="titFormControl.hasError('required')">
+            Ingrese Titulo de Noticia
+         </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Descripcion</mat-label>
+            <textarea matInput [(ngModel)]="NotiDTO.descripcion" name="input2" [formControl]="desFormControl" placeholder="Descripcion..."></textarea>
+            <mat-error *ngIf="desFormControl.hasError('required')">
+              Ingrese una Descripcion
+           </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Fecha de Caducidad</mat-label>
+            <input matInput [matDatepicker]="picker3" [formControl]="date">
+            <mat-error *ngIf="date.hasError('required')">
+              Ingrese Fecha de Caducidad
+           </mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker3">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+          </mat-form-field>
+          <div style="display: flex;flex-direction: row;align-items: flex-end;justify-content: space-between;">
+          <div>
+            <button type="button" mat-raised-button (click)="fileInput.click()" style="background: teal;color: whitesmoke;">Subir Imagen</button>
+            <input hidden (change)="handleFileInput($event.target.files,$event)" #fileInput type="file" id="file">
+
+          </div>
+            <div>
+              <img [src]="imagen64" style="width: 100px;height: 100px;background-color: gray;"> 
+            </div>
+        </div>
+        </div>
+
+        <mat-divider></mat-divider>
+        <div style="display: flex;justify-content: space-between;padding: 10px;">
+            <div><button mat-button mat-dialog-close>Cancelar</button></div>
+            <div><button mat-button (click)="postConvenios()" color="primary">Crear</button></div>
+        </div>
+
+
+
+
+      </form>

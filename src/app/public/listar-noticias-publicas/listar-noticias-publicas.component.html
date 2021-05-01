@@ -1,0 +1,20 @@
+<div style="padding: 20px;"><h2 style="padding-left: 20px;color: darkcyan;">Bienvenidos a GestClub </h2></div>
+<mat-divider></mat-divider>
+<h4 style="padding-left: 20px;color: gray;margin-bottom: 0px;padding: 40px;">Bienvenidos a nuestra pagina,aqui podras encontrar todo tipo de actividades a realizar con los mejores descuentos, a precios super accesibles. Tambien podras ver nuestras noticias que se actualizaran continuamente para mantenerte siempre informado en el mundo del deporte.</h4>
+<mat-divider></mat-divider>
+<div style="padding: 20px;"><h2 style="padding-left: 20px;color: darkcyan;margin-bottom: 0px;">Noticias</h2></div>
+<mat-divider></mat-divider>
+<div style="display: flex;align-items: center;justify-content: space-around;flex-wrap: wrap;padding: 20px;background: cadetblue;">
+    <div  class="btn" *ngFor="let x of dataSource" style="margin: 20px;background: crimson;padding: 30px;box-shadow: black 2px 2px 5px;border-radius: 5px;display: flex;justify-content: center;">
+    <a (click)="openNoticia(x)" style="list-style: none;text-decoration: none;background: crimson; cursor:pointer;">
+
+            <div>
+                <h3 style="color: whitesmoke;font-size: 20px;">{{ x.titulo }} </h3>
+                <h5 style="color: whitesmoke;">{{ x.descripcion }}... </h5>
+                <img  src= "{{x.imagen}}" style="height: 200px;width: 300px;">
+            </div>
+        </a>
+
+    </div>
+</div>
+

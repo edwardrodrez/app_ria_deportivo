@@ -1,0 +1,21 @@
+<h3 style="color: darkcyan;">Quitar Rol</h3>
+<mat-divider></mat-divider>
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Usuario</mat-label>
+            <input matInput [(ngModel)]="rolDTO.username" name="input1" placeholder="Usuario">
+          </mat-form-field>
+        <div style="padding-top: 20px;padding-bottom: 30px;">
+            <p>Este usuario pasara a ser de rol : USER</p>
+
+        </div>
+        <mat-divider></mat-divider>
+        <div style="display: flex;justify-content: space-between;padding: 10px;">
+            <div><button mat-button mat-dialog-close>Cancelar</button></div>
+            <div><button mat-button (click)="postConvenios()" color="primary">Quitar</button></div>
+        </div>
+
+
+
+      </form>

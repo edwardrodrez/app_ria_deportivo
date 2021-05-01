@@ -1,0 +1,52 @@
+.example-form {
+  min-width: 200px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+.example-container {
+  height: 200px;
+  overflow-y: auto;
+}
+
+.mat-column-select {
+  overflow: initial;
+}
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.example-radio-button {
+  margin: 10px;
+}
+.mat-column-select {
+  overflow: initial;
+}
+
+.mat-stepper-vertical {
+  margin-top: 8px;
+}
+
+.mat-stepper-horizontal .mat-stepper-horizontal-line {
+  margin: 0 -4px; 
+}
+.mat-vertical-content {
+  padding: 0 24px 0px 24px;
+}
+.mat-stepper-horizontal .mat-horizontal-stepper-header {
+  padding: 10px;
+  height:auto;
+}
+.mat-stepper-horizontal .mat-stepper-horizontal-line {
+  margin: 0 -4px; 
+}

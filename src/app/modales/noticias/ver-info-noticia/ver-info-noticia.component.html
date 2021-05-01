@@ -1,0 +1,26 @@
+<h3 style="color: darkcyan;text-align: center;">{{data.titulo}}</h3>
+<mat-divider></mat-divider>
+
+<form class="example-form" style="display: flex;flex-direction: column;">
+        <div class="example-full-width" style="padding-top: 20px;padding-bottom: 10px;display: flex;flex-direction: column;">  
+                <div>
+                    <h3 style="color: darkcyan;">Imagen:</h3>  
+                </div>              
+                <div  class="btn" style="box-shadow: black 2px 2px 5px;border-radius: 5px;height: 200px;max-width: 300px; min-width: 150px;display: flex;justify-content: center;align-content: center;">                                                                               
+                    
+                    <img src="{{data.imagen}}" style="height: 200px;max-width: 300px; min-width: 150px;">                                                
+                </div>
+                <div  style="margin-top: 20px;font-size: 16px;margin-left: 5px;">   
+                    <h3 style="color: darkcyan;">Fecha de Caducidad:</h3>
+                    <h5 style="font-size: 16px;padding-left: 10px;">{{data.fechaCaducidad}}</h5> 
+                </div>
+                <div  style="margin-top: 20px;font-size: 16px;margin-left: 5px;overflow-y: scroll;height: 90px;">   
+                    <h3 style="color: darkcyan;">Descripcion:</h3>
+                    <h5 style="font-size: 16px;padding-left: 10px;">{{data.descripcion}} </h5> 
+                </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div style="display: flex;justify-content: space-between;padding: 10px;">
+            <div><button mat-button mat-dialog-close>Volver</button></div>
+        </div>
+ </form>

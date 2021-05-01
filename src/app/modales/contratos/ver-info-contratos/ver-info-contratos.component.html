@@ -1,0 +1,47 @@
+<h3 style="color: darkcyan;text-align: center;">Detalle del Contrato</h3>
+<mat-divider></mat-divider>
+
+<form class="example-form" style="display: flex;flex-direction: column;">
+        <div style="padding-bottom: 20px;display: flex;flex-direction: column;">  
+            <div  style="margin-top: 20px;font-size: 16px;margin-left: 5px">   
+                <h3 style="color: darkcyan;">Datos del Contrato :</h3>           
+            </div>
+                <div style="margin-top: 10px;font-size: 16px;margin-left: 5px;">
+                 
+                    <div *ngIf="data.activo">
+                        <h5 style="font-size: 16px;padding-left: 20px;">Se encuentra Activo</h5>
+                    </div>
+                    <div *ngIf="!data.activo">
+                        <h5 style="font-size: 16px;padding-left: 20px;">No se encuentra Activo</h5>
+                    </div>
+                </div>
+                <div style="font-size: 16px;margin-left: 5px;">
+                    <h3 style="padding-left: 20px;">Genero: {{data.usuarioGenero}}</h3>  
+                </div>              
+                <div style="font-size: 16px;margin-left: 5px;">
+                    <h3 style="padding-left: 20px;">Fecha:  {{data.fechaComienzo}} </h3>  
+                </div> 
+                <mat-divider></mat-divider>          
+                <div style="font-size: 16px;margin-left: 5px">   
+                    <h3 style="color: crimson;">Socio:</h3>
+                    <h3 style="padding-left: 20px;">Nombre:  {{data.socio.primerNombre}} {{data.socio.primerApellido}}</h3>
+                    <h3 style="padding-left: 20px;">Documento:  {{data.socio.documento}}</h3>               
+                </div>
+                <div style="font-size: 16px;margin-left: 5px">   
+                    <h3 style="color: crimson;">Convenio Asociado:  </h3>
+                    <h3 style="padding-left: 20px;">{{data.convenio.nombre}}</h3>             
+                </div>
+                <div style="font-size: 16px;margin-left: 5px">   
+                    <h3 style="color: crimson;">Categoria Asociada:  </h3>
+                    <h3 style="padding-left: 20px;">{{data.categoria.nombre}}</h3>             
+                </div>
+                <div style="font-size: 16px;margin-left: 5px">   
+                    <h3 style="color: crimson;">Medio de Pago: </h3>
+                    <h3 style="padding-left: 20px;">{{data.medioDePago.nombre}}</h3>             
+                </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div style="display: flex;justify-content: space-between;padding: 10px;">
+            <div><button mat-button mat-dialog-close>Volver</button></div>
+        </div>
+ </form>

@@ -1,0 +1,26 @@
+<h3 style="color: darkcyan;text-align: center;">{{ data.nombre }}</h3>
+<mat-divider></mat-divider>
+
+<form class="example-form" style="display: flex;flex-direction: column;">
+        <div  class="example-full-width" style="padding-top: 20px;padding-bottom: 10px;display: flex;flex-direction: column;">
+            <div style="margin-top: 10px;font-size: 16px;margin-left: 5px;">
+                <h3 style="color: darkcyan;">Activa:</h3>
+                <div *ngIf="data.activo">
+                    <h5 style="font-size: 16px;padding-left: 20px;">Se encuentra Activa</h5>
+                </div>
+                <div *ngIf="!data.activo">
+                    <h5 style="font-size: 16px;padding-left: 20px;">No se encuentra Activa</h5>
+                </div>
+            </div>
+                <div style="margin-top: 20px;font-size: 16px;margin-left: 5px;">
+                    <h3 style="color: crimson;">Precios de la Categoria:</h3>
+                </div>
+                <div  style="font-size: 16px;margin-left: 5px;overflow-y: auto;height: 80px;">
+                    <h5 style="font-size: 16px;padding-left: 20px;" *ngFor="let hero of data.precios">$ {{ hero.valor }}</h5> 
+                </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div style="display: flex;justify-content: space-between;padding: 10px;">
+            <div><button mat-button mat-dialog-close>Volver</button></div>
+        </div>
+ </form>

@@ -1,0 +1,25 @@
+<h3 style="color: darkcyan;text-align: center;">Detalle Precio</h3>
+<mat-divider></mat-divider>
+
+<form class="example-form" style="display: flex;flex-direction: column;">
+    <div class="example-full-width" style="padding-bottom: 20px;display: flex;flex-direction: column;">
+            <div style="margin-top: 10px;font-size: 16px;margin-left: 5px;">
+                <h3 style="color: darkcyan;">Valor:</h3>
+                <h5 style="font-size: 16px;padding-left: 20px;">$ {{data.valor}} </h5>
+            </div>
+
+            <div  style="margin-top: 20px;font-size: 16px;margin-left: 5px;">
+                <h3 style="color: darkcyan;">Fecha de Vigencia:</h3>
+                <h5 style="font-size: 16px;padding-left: 20px;">{{data.fechaVigencia}} </h5> 
+            </div>
+            <mat-divider></mat-divider>
+            <div  style="margin-top: 20px;font-size: 16px;margin-left: 5px">
+                <h3 style="color: crimson;">Categoria Asociada: </h3>
+                <h5 style="font-size: 16px;padding-left: 20px;">{{data.categoria.nombre}} </h5>
+            </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div style="display: flex;justify-content: space-between;padding: 10px;">
+        <div><button mat-button mat-dialog-close>Volver</button></div>
+    </div>
+</form>

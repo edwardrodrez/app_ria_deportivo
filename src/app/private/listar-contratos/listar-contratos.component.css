@@ -1,0 +1,62 @@
+/* Structure */
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.asig-rol{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.asig-rol button{
+  color: teal;
+}
+
+.example-element-diagram {
+  min-width: 50px;
+  border: 2px solid teal;
+  border-radius: 50px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 50px;
+  width: 50px;
+}
+
+.example-element-ps {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}

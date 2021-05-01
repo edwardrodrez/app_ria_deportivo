@@ -1,0 +1,46 @@
+<h3 style="color: darkcyan;text-align: center;">Persona : Nombre</h3>
+<mat-divider></mat-divider>
+
+<form class="example-form" style="display: flex;flex-direction: column;">
+        <div style="padding-bottom: 20px;display: flex;flex-direction: column;">  
+            <div  style="margin-top: 20px;font-size: 16px;margin-left: 5px">   
+                <h3 style="color: darkcyan;">Datos de Usuario :</h3>           
+            </div>
+                <div style="margin-top: 10px;font-size: 16px;margin-left: 5px;">
+                    <h3 style="padding-left: 20px;font-size: 13px;">Primer Nombre: {{data.primerNombre}}</h3>  
+                </div>              
+                <div style="margin-top: 10px;font-size: 16px;margin-left: 5px;">
+                    <h3 style="padding-left: 20px;font-size: 13px;">Segundo Nombre: {{data.segundoNombre}} </h3>  
+                </div>      
+                <div style="margin-top: 10px;font-size: 16px;margin-left: 5px;">
+                    <h3 style="padding-left: 20px;font-size: 13px;">Primer Apellido: {{data.primerApellido}}</h3>  
+                </div>              
+                <div style="margin-top: 10px;font-size: 16px;margin-left: 5px;">
+                    <h3 style="padding-left: 20px;font-size: 13px;">Segundo Apellido: {{data.segundoApellido}} </h3>  
+                </div>  
+                <div style="margin-top: 10px;font-size: 16px;margin-left: 5px;">
+                    <h3 style="padding-left: 20px;font-size: 13px;">font-size: 13px;Fecha de Nacimiento: {{data.fechaNacimiento}}</h3>  
+                </div>              
+                <div style="margin-top: 10px;font-size: 16px;margin-left: 5px;">
+                    <h3 style="padding-left: 20px;font-size: 13px;">Documento: {{data.documento}} Tipo : {{data.tipoDocumento}}</h3>  
+                </div> 
+                <div style="margin-top: 10px;font-size: 16px;margin-left: 5px;">
+                    <h3 style="padding-left: 20px;font-size: 13px;">Telefono: {{data.telefono}}</h3>  
+                </div>              
+                <div style="margin-top: 10px;font-size: 16px;margin-left: 5px;">
+                    <h3 style="font-size: 13px;padding-left: 20px;">Direccion: {{data.direccion}}</h3>  
+                </div>  
+                <div style="margin-top: 10px;font-size: 16px;margin-left: 5px;">
+                    <h3 style="padding-left: 20px;font-size: 13px;">Vencimiento Carne de Salud: {{data.fechaVenceCarneSalud}}</h3>  
+                </div>  
+                <mat-divider></mat-divider>                 
+                <div style="margin-top: 20px;font-size: 16px;margin-left: 5px">   
+                    <h3 style="color: crimson;">Prestador de Salud Asociado:</h3>
+                    <h3 *ngIf="data.prestadorDeSalud!=null" style="padding-left: 20px;font-size: 13px;">{{data.prestadorDeSalud.nombre}}</h3>             
+                </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div style="display: flex;justify-content: space-between;padding: 10px;">
+            <div><button mat-button mat-dialog-close>Volver</button></div>
+        </div>
+ </form>
